@@ -15,4 +15,4 @@ spec:
       terminationGracePeriodSeconds: 10
       containers:
         - name: client
-          image: ivanruskiatft/client:1.0.9
+          image: ivanruskiatft/client:1.0.11

@@ -20,7 +20,7 @@ spec:
       terminationGracePeriodSeconds: 70 # Set this value longer than the expected cleanup time for your process
       containers:
         - name: server
-          image: ivanruskiatft/server:1.0.9
+          image: ivanruskiatft/server:1.0.10
           env:
             - name: POD_NAME
               valueFrom:
@@ -38,12 +38,16 @@ spec:
               port: 8080
               scheme: HTTP
             timeoutSeconds: 2
-            periodSeconds: 1
+            periodSeconds: 3
+            successThreshold: 1
+            failureThreshold: 3
           readinessProbe:
             httpGet:
               path: "/__gtg"
               port: 8080
               scheme: HTTP
             timeoutSeconds: 2
-            periodSeconds: 1
+            periodSeconds: 3
+            successThreshold: 1
+            failureThreshold: 3
             
