@@ -12,10 +12,13 @@ import (
 )
 
 var client *http.Client
+var (
+	host               = flag.String("host", "http://server:8080", "Server to ping")
+	concurrentRequests = flag.Int("concurrentRequests", 20, "number of concurrent requests to send to the server")
+	ignoreInfoLogs     = flag.Bool("ignoreInfoLogs", false, "log only errors")
+)
 
 func main() {
-	host := flag.String("host", "http://server:8080", "Server to ping")
-
 	flag.Parse()
 
 	client = &http.Client{}
@@ -28,7 +31,7 @@ func main() {
 			return
 		default:
 			wg := &sync.WaitGroup{}
-			for i := 0; i < 20; i++ {
+			for i := 0; i < *concurrentRequests; i++ {
 				wg.Add(1)
 				go sendRequest(i, *host, wg)
 			}
@@ -51,7 +54,7 @@ func sendRequest(i int, host string, wg *sync.WaitGroup) {
 			data, err := readResponse(res)
 			if err != nil {
 				log.Printf("error (%d): %s", i, err)
-			} else {
+			} else if *ignoreInfoLogs == false {
 				log.Printf("success (%d): %s", i, string(data))
 			}
 		}

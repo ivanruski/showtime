@@ -15,4 +15,7 @@ spec:
       terminationGracePeriodSeconds: 10
       containers:
         - name: client
-          image: ivanruskiatft/client:1.0.11
+          image: ivanruskiatft/client:1.1.0
+          command: [ "/client" ]
+          args: [ "-concurrentRequests", "40", "-ignoreInfoLogs", "true" ]
+          
