@@ -1,0 +1,18 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: client
+spec:
+  selector:
+    matchLabels:
+      name: client
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: client
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+        - name: client
+          image: ivanruskiatft/client:1.0.9

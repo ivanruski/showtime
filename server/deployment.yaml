@@ -1,0 +1,49 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: server
+spec:
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      name: server
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: server
+    spec:
+      terminationGracePeriodSeconds: 70 # Set this value longer than the expected cleanup time for your process
+      containers:
+        - name: server
+          image: ivanruskiatft/server:1.0.9
+          env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+          startupProbe:
+            initialDelaySeconds: 10
+            httpGet:
+              path: "/__gtg"
+              port: 8080
+              scheme: HTTP
+          livenessProbe:
+            httpGet:
+              path: "/__gtg"
+              port: 8080
+              scheme: HTTP
+            timeoutSeconds: 2
+            periodSeconds: 1
+          readinessProbe:
+            httpGet:
+              path: "/__gtg"
+              port: 8080
+              scheme: HTTP
+            timeoutSeconds: 2
+            periodSeconds: 1
+            
