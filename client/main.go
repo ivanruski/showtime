@@ -55,7 +55,7 @@ func sendRequest(i int, host string, wg *sync.WaitGroup) {
 			if err != nil {
 				log.Printf("error (%d): %s", i, err)
 			} else if *ignoreInfoLogs == false {
-				log.Printf("success (%d): %s", i, string(data))
+				log.Printf("success (%2d): %s", i, string(data))
 			}
 		}
 	}
