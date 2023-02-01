@@ -1,0 +1,40 @@
+{
+  "uuid": "not-a-uuid",
+  "type": "Organisation",
+  "properName": "Cleveland-Cliffs Steel Holding Corp.",
+  "prefLabel": "Cleveland-Cliffs Steel Holding Corp.",
+  "legalName": "Cleveland-Cliffs Steel Holding Corporation",
+  "shortName": "Cleveland Cliffs Steel",
+  "authority": "FACTSET",
+  "authorityValue": "000BNN-E",
+  "formerNames": [
+    "AK Steel Holding Corp."
+  ],
+  "aliases": [
+    "AK Steel Holding Corp.",
+    "Cleveland Cliffs Steel",
+    "Cleveland-Cliffs Steel Holding Corp.",
+    "Cleveland-Cliffs Steel Holding Corporation"
+  ],
+  "parentOrganisation": "9e66c773-7d47-33a9-9622-483811c123c4",
+  "countryCode": "US",
+  "countryOfRisk": "US",
+  "countryOfIncorporation": "US",
+  "countryOfOperations": "US",
+  "countryOfRiskUUID": "3e2eb1c1-7ecd-4600-8cbb-c02ba53ced4b",
+  "countryOfIncorporationUUID": "3e2eb1c1-7ecd-4600-8cbb-c02ba53ced4b",
+  "countryOfOperationsUUID": "3e2eb1c1-7ecd-4600-8cbb-c02ba53ced4b",
+  "postalCode": "45069",
+  "yearFounded": 1993,
+  "leiCode": "529900DT4E7ZNETMVC04",
+  "naicsIndustryClassifications": [
+    {
+      "uuid": "c2e06532-9372-47ab-8486-ba5d4099606e",
+      "rank": 1
+    },
+    {
+      "uuid": "5dac1d9c-5e5b-4ad5-a1f5-fbbfd423f8cf",
+      "rank": 2
+    }
+  ]
+}
